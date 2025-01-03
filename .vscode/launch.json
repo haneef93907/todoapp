@@ -1,0 +1,34 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "preLaunchTask": "npm: start - client",
+            "type": "chrome",
+            "request": "launch",
+            "name": "Launch Client",
+            "url": "http://localhost:3000",
+            "webRoot": "${workspaceFolder}/client/src",
+            // "sourceMaps": true
+          },
+
+          {
+            "type": "node",
+            "request": "launch",
+            "name": "Launch Server",
+            "program": "${workspaceFolder}/backend/server.js", // Path to your server entry file
+            "cwd": "${workspaceFolder}",
+            "envFile": "${workspaceFolder}/backend/.env", // Load environment variables
+            "outFiles": ["${workspaceFolder}/**/*.js"] // Include all .js files for debugging
+          }
+    ],
+
+    "compounds": [
+        {
+          "name": "Debug Both",
+          "configurations": ["Launch Client", "Launch Server"]
+        }
+      ]
+}
